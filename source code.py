@@ -91,7 +91,7 @@ def run_cindrella():
     elif 'do you like me' in command:
         talk('yes boss definitely')
     elif 'cringe' in command:
-        talk('alright........her name is janani,she was greatest,legend and gethu janani,foodie and more,her petname is cringe child')
+        talk('alright........funny person')
 
     elif 'joke' in command:
         joke = pyjokes.get_joke()
