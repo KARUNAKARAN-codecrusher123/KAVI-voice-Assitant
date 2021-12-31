@@ -147,7 +147,7 @@ def run_cindrella():
     elif 'what is your name' in command:
         talk('My devloper karunakran has named me kkavi')
     elif 'cringe' in command:
-        talk('alright........her name is janani,she was greatest,legend and gethu janani,foodie and more,her petname is cringe child')
+        talk('he/she was an funniest person')
     elif 'joke' in command:
         joke = pyjokes.get_joke()
         print(joke)
