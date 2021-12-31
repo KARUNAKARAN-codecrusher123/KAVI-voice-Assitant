@@ -4,6 +4,12 @@ import pywhatkit
 import datetime
 import pyjokes
 import wikipedia
+from datetime import datetime
+from geopy.geocoders import Nominatim
+import os
+import psutil
+from bs4 import BeautifulSoup
+import requests
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -16,11 +22,11 @@ def talk(text):
     engine.runAndWait()
 
 
-hi=0
+hi = 0
 
-if hi==0:
+if hi == 0:
     talk('hello iam cindrella')
-    print('hello iam cindrella')
+    print('hello iam cindrella Voice assistant')
     talk('How are you buddy!!!')
     print('How are you buddy!!!')
     talk('doing good right?????')
@@ -48,6 +54,7 @@ def take_command():
     return command
 
 
+
 def run_cindrella():
     command = take_command()
     print(command)
@@ -58,7 +65,7 @@ def run_cindrella():
         talk('playing ' + song)
         pywhatkit.playonyt(song)
     elif 'whatsapp' in command:
-        pywhatkit.sendwhatmsg("+91 93611 40968", "hello iam cindrella,my boss has told me to text any important info",
+        pywhatkit.sendwhatmsg("+91 93611 40968", "hello iam kavi,my boss has told me to text any important info",
                               13, 58)
         print("Successfully Sent!")
     elif 'time' in command:
@@ -72,14 +79,62 @@ def run_cindrella():
         talk(source)
     elif 'search' in command:
         info = command.replace('search', '')
-        general = wikipedia.search(info, 10)
+        general = wikipedia.search(info, 100)
         print(general)
         talk(general)
     elif 'history' in command:
         gen = command.replace('history, battle, movie review', '')
-        small = wikipedia.summary(gen, 10)
+        small = wikipedia.summary(gen, 100)
         print(small)
         talk(small)
+    elif 'date' in command:
+        date = datetime.date.today()
+        print(date)
+        talk(date)
+    elif 'health' in command:
+        load1, load5, load15 = psutil.getloadavg()
+        cpu_usage = (load15 / os.cpu_count()) * 100
+        print("The CPU usage is : ", cpu_usage)
+        talk(cpu_usage)
+    elif 'memory size' in command:
+        print('RAM memory % used:', psutil.virtual_memory()[2])
+    elif 'location' in command:
+        loc = Nominatim(user_agent="GetLoc")
+        getloc = loc.geocode("Coimbatore")
+        print(getloc.address)
+        talk(getloc)
+    elif 'weather' in command:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+
+        def weather(city):
+            city = city.replace(" ", "+")
+            res = requests.get(
+                f'https://www.google.com/search?q={city}&oq={city}&aqs=chrome.0.35i39l2j0l4j46j69i60.6128j1j7&sourceid=chrome&ie=UTF-8',
+                headers=headers)
+            print("Searching...\n")
+            soup = BeautifulSoup(res.text, 'html.parser')
+            location = soup.select('#wob_loc')[0].getText().strip()
+            time = soup.select('#wob_dts')[0].getText().strip()
+            info = soup.select('#wob_dc')[0].getText().strip()
+            weather = soup.select('#wob_tm')[0].getText().strip()
+            print(location)
+            talk(location)
+            print(time)
+            talk(time)
+            print(info)
+            talk(info)
+            ab = (weather + "°C")
+            talk(ab)
+            print(ab)
+
+        city1 = "coimbatore"
+        talk(city1)
+        city = city1 + " weather"
+        weather(city)
+        abc = ("Have a Nice Day Buddy")
+        talk(abc)
+
     elif 'movie review' in command:
         movie = command.replace('movie review', '')
         small = wikipedia.summary(movie, 10)
@@ -89,9 +144,10 @@ def run_cindrella():
         talk('no......um.i am in relationship with wireless devices')
     elif 'do you like me' in command:
         talk('yes boss definitely')
+    elif 'what is your name' in command:
+        talk('My devloper karunakran has named me kkavi')
     elif 'cringe' in command:
-        talk('alright........he/she funny guy')
-
+        talk('alright........her name is janani,she was greatest,legend and gethu janani,foodie and more,her petname is cringe child')
     elif 'joke' in command:
         joke = pyjokes.get_joke()
         print(joke)
