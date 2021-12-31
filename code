@@ -11,6 +11,10 @@ import psutil
 from bs4 import BeautifulSoup
 import requests
 
+
+
+
+
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -25,8 +29,8 @@ def talk(text):
 hi = 0
 
 if hi == 0:
-    talk('hello iam cindrella')
-    print('hello iam cindrella Voice assistant')
+    talk('hello iam kkavi')
+    print('hello iam kavi Voice assistant')
     talk('How are you buddy!!!')
     print('How are you buddy!!!')
     talk('doing good right?????')
@@ -46,8 +50,8 @@ def take_command():
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            if 'cindrella' in command:
-                command = command.replace('cindrella', '')
+            if 'kavi' in command:
+                command = command.replace('kavi', '')
                 print(command)
     except:
         pass
@@ -55,7 +59,9 @@ def take_command():
 
 
 
-def run_cindrella():
+
+
+def run_kavi():
     command = take_command()
     print(command)
     if 'play' in command:
@@ -68,10 +74,6 @@ def run_cindrella():
         pywhatkit.sendwhatmsg("+91 93611 40968", "hello iam kavi,my boss has told me to text any important info",
                               13, 58)
         print("Successfully Sent!")
-    elif 'time' in command:
-        time = datetime.datetime.now().strftime('%H:%M:%S')
-        print(time)
-        talk('current time is' + time)
     elif 'who is' in command:
         person = command.replace('who is', '')
         source = wikipedia.summary(person, 100)
@@ -87,17 +89,14 @@ def run_cindrella():
         small = wikipedia.summary(gen, 100)
         print(small)
         talk(small)
-    elif 'date' in command:
-        date = datetime.date.today()
-        print(date)
-        talk(date)
     elif 'health' in command:
         load1, load5, load15 = psutil.getloadavg()
         cpu_usage = (load15 / os.cpu_count()) * 100
-        print("The CPU usage is : ", cpu_usage)
-        talk(cpu_usage)
-    elif 'memory size' in command:
-        print('RAM memory % used:', psutil.virtual_memory()[2])
+        cd = ("My health was in good condition because your'e using me in good way (cpu usage) : ", cpu_usage)
+        talk(cd)
+    elif 'memory' in command:
+        bc = (psutil.virtual_memory()[2])
+        talk(bc)
     elif 'location' in command:
         loc = Nominatim(user_agent="GetLoc")
         getloc = loc.geocode("Coimbatore")
@@ -120,10 +119,10 @@ def run_cindrella():
             weather = soup.select('#wob_tm')[0].getText().strip()
             print(location)
             talk(location)
-            print(time)
-            talk(time)
             print(info)
             talk(info)
+            print(time)
+            talk(time)
             ab = (weather + "°C")
             talk(ab)
             print(ab)
@@ -147,7 +146,7 @@ def run_cindrella():
     elif 'what is your name' in command:
         talk('My devloper karunakran has named me kkavi')
     elif 'cringe' in command:
-        talk('he/she was an funniest person')
+        talk('alright........he/she was funniest perosn')
     elif 'joke' in command:
         joke = pyjokes.get_joke()
         print(joke)
@@ -157,4 +156,4 @@ def run_cindrella():
 
 
 while True:
-    run_cindrella()
+    run_kavi()
