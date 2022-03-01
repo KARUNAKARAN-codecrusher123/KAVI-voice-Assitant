@@ -89,4 +89,4 @@ In case of any help, please free to contact me via mail @ kk123karuna@gmail.com
 <div align="center">
 <table>
   <tbody><tr>
-     <td align="center"><a href="https://github.com/karunakaran186"><img alt="" src="https://avatars.githubusercontent.com/u/77088143?v=4" width="130px;"><br><sub><b> Karunkaran</b></sub></a><br>💻
+     <td align="center"><a href="https://github.com/karunakaran186"><img alt="" src="https://avatars.githubusercontent.com/u/66834895?v=4"width="130px;"><br><sub><b> Karunkaran</b></sub></a><br>💻
