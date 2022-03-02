@@ -4,6 +4,7 @@ import pywhatkit
 import datetime
 import pyjokes
 import wikipedia
+import webbrowser
 from datetime import datetime
 from geopy.geocoders import Nominatim
 import os
@@ -102,37 +103,8 @@ def run_kavi():
         getloc = loc.geocode("Coimbatore")
         print(getloc.address)
         talk(getloc)
-    elif 'weather' in command:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
-        def weather(city):
-            city = city.replace(" ", "+")
-            res = requests.get(
-                f'https://www.google.com/search?q={city}&oq={city}&aqs=chrome.0.35i39l2j0l4j46j69i60.6128j1j7&sourceid=chrome&ie=UTF-8',
-                headers=headers)
-            print("Searching...\n")
-            soup = BeautifulSoup(res.text, 'html.parser')
-            location = soup.select('#wob_loc')[0].getText().strip()
-            time = soup.select('#wob_dts')[0].getText().strip()
-            info = soup.select('#wob_dc')[0].getText().strip()
-            weather = soup.select('#wob_tm')[0].getText().strip()
-            print(location)
-            talk(location)
-            print(info)
-            talk(info)
-            print(time)
-            talk(time)
-            ab = (weather + "°C")
-            talk(ab)
-            print(ab)
 
-        city1 = "coimbatore"
-        talk(city1)
-        city = city1 + " weather"
-        weather(city)
-        abc = ("Have a Nice Day Buddy")
-        talk(abc)
 
     elif 'movie review' in command:
         movie = command.replace('movie review', '')
@@ -151,6 +123,41 @@ def run_kavi():
         joke = pyjokes.get_joke()
         print(joke)
         talk(joke)
+
+    elif "weather" in command:
+            api_key="51d5d78391e312e72cde67174f38e770"
+            base_url="https://api.openweathermap.org/data/2.5/weather?"
+            talk("what is the city name")
+            city_name=take_command()
+            complete_url=base_url+"appid="+api_key+"&q="+city_name
+            response = requests.get(complete_url)
+            x=response.json()
+            if x["cod"]!="404":
+                y=x["main"]
+                current_temperature = y["temp"]
+                current_humidiy = y["humidity"]
+                z = x["weather"]
+                weather_description = z[0]["description"]
+                talk(" Temperature in kelvin unit is " +
+                      str(current_temperature) +
+                      "\n humidity in percentage is " +
+                      str(current_humidiy) +
+                      "\n description  " +
+                      str(weather_description))
+                print(" Temperature in kelvin unit = " +
+                      str(current_temperature) +
+                      "\n humidity (in percentage) = " +
+                      str(current_humidiy) +
+                      "\n description = " +
+                      str(weather_description))    
+
+    elif "where is" in command:
+        command = command.replace("where is", "")
+        location = command
+        talk("User asked to Locate")
+        talk(location)
+        webbrowser.open("https://www.google.nl/maps/place/" + location + "")
+    
     else:
         talk('cant get it....please say it again')
 
