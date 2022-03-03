@@ -40,8 +40,12 @@ Then, You got here right!!
 &nbsp;
 
 ## 📌 Introduction
+
 Hey there! 
 Let me introduce Kavi. Kavi is basically a virtual assistant who helps us to know various things by answering our queries.
+=======
+Hey there, Kavi is basically a virtual assistant in which it help us to know various things. Such as it will help you in to know, What time it is, Whats the temp, Where am i and translating one language to a desired language, etc. Sounds good right?
+
 
 Imagine, suddenly curiosity strikes your mind for knowing the unknown stuffs...Boom! Kavi is there to help you out!
 
