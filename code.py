@@ -1,18 +1,11 @@
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
-import datetime
 import pyjokes
 import wikipedia
-from datetime import datetime
 from geopy.geocoders import Nominatim
-import os
-import psutil
 from bs4 import BeautifulSoup
 import requests
-
-
-
 
 
 listener = sr.Recognizer()
@@ -21,9 +14,11 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 
+
 def talk(text):
     engine.say(text)
     engine.runAndWait()
+
 
 
 hi = 0
@@ -57,13 +52,10 @@ def take_command():
         pass
     return command
 
-
-
-
-
 def run_kavi():
     command = take_command()
     print(command)
+
     if 'play' in command:
         talk('playing')
         print('playing')
@@ -72,7 +64,7 @@ def run_kavi():
         pywhatkit.playonyt(song)
     elif 'whatsapp' in command:
         pywhatkit.sendwhatmsg("+91 93611 40968", "hello iam kavi,my boss has told me to text any important info",
-                            19, )
+                              19, )
         print("Successfully Sent!")
     elif 'who is' in command:
         person = command.replace('who is', '')
@@ -138,7 +130,7 @@ def run_kavi():
     elif 'what is your name' in command:
         talk('My devloper karunakran has named me kkavi')
     elif 'cringe' in command:
-        talk('alright........he/she was funniest perosn')
+        talk('alright........he/she was funniest personn')
     elif 'joke' in command:
         joke = pyjokes.get_joke()
         print(joke)
