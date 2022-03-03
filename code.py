@@ -72,31 +72,23 @@ def run_kavi():
         pywhatkit.playonyt(song)
     elif 'whatsapp' in command:
         pywhatkit.sendwhatmsg("+91 93611 40968", "hello iam kavi,my boss has told me to text any important info",
-                              13, 58)
+                            19, )
         print("Successfully Sent!")
     elif 'who is' in command:
         person = command.replace('who is', '')
-        source = wikipedia.summary(person, 100)
+        source = wikipedia.summary(person, 20)
         print(source)
         talk(source)
     elif 'search' in command:
         info = command.replace('search', '')
-        general = wikipedia.search(info, 100)
+        general = wikipedia.search(info, 20)
         print(general)
         talk(general)
     elif 'history' in command:
         gen = command.replace('history, battle, movie review', '')
-        small = wikipedia.summary(gen, 100)
+        small = wikipedia.summary(gen, 20)
         print(small)
         talk(small)
-    elif 'health' in command:
-        load1, load5, load15 = psutil.getloadavg()
-        cpu_usage = (load15 / os.cpu_count()) * 100
-        cd = ("My health was in good condition because your'e using me in good way (cpu usage) : ", cpu_usage)
-        talk(cd)
-    elif 'memory' in command:
-        bc = (psutil.virtual_memory()[2])
-        talk(bc)
     elif 'location' in command:
         loc = Nominatim(user_agent="GetLoc")
         getloc = loc.geocode("Coimbatore")
@@ -151,22 +143,18 @@ def run_kavi():
         joke = pyjokes.get_joke()
         print(joke)
         talk(joke)
-    elif 'who made you' in command:    
-        talk('karunakran is my developer.he is a good guy')
-    elif 'i am tired' in command:    
+    elif 'i am tired' in command:
         talk('you should take a break')
-    elif 'favorite game' in command:    
+    elif 'favorite game' in command:
         talk('my favorite game is chess')
     elif 'can you dance' in command:
         talk('I cant dance as of now, but I can play some dance music')
-    elif 'how do i look' in command:    
+    elif 'how do i look' in command:
         talk('juding from your voice, amazing')
     elif 'can you cook' in command:
         talk('i can cook you up amazing bedtime stories if you want')
-    elif 'will you marry me' in command:    
-        talk('I have been waiting for you to say this for a long time')
-    elif 'time' in command:
-        talk('its currently ' + str(datetime.now().hour) + ' hours and ' + str(datetime.now().minute) + ' minutes')  
+    elif 'who is your friend' in command:
+        talk('her name is nilla voice assistant, she was in another repository')
     else:
         talk('cant get it....please say it again')
 
