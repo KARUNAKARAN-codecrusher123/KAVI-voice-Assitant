@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
+
 import datetime
 import pyjokes
 import wikipedia
@@ -8,6 +9,11 @@ from datetime import datetime
 from geopy.geocoders import Nominatim
 import os
 import psutil
+=======
+import pyjokes
+import wikipedia
+from geopy.geocoders import Nominatim
+
 from bs4 import BeautifulSoup
 import requests
 
@@ -15,15 +21,26 @@ import requests
 
 
 
+
+=======
+
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 
+
+=======
+
+
 def talk(text):
     engine.say(text)
     engine.runAndWait()
+
+
+
+=======
 
 
 hi = 0
@@ -61,9 +78,16 @@ def take_command():
 
 
 
+
 def run_kavi():
     command = take_command()
     print(command)
+=======
+def run_kavi():
+    command = take_command()
+    print(command)
+
+
     if 'play' in command:
         talk('playing')
         print('playing')
@@ -72,20 +96,33 @@ def run_kavi():
         pywhatkit.playonyt(song)
     elif 'whatsapp' in command:
         pywhatkit.sendwhatmsg("+91 93611 40968", "hello iam kavi,my boss has told me to text any important info",
+
                               13, 58)
         print("Successfully Sent!")
     elif 'who is' in command:
         person = command.replace('who is', '')
         source = wikipedia.summary(person, 100)
+=======
+                              19, )
+        print("Successfully Sent!")
+    elif 'who is' in command:
+        person = command.replace('who is', '')
+        source = wikipedia.summary(person, 20)
+
         print(source)
         talk(source)
     elif 'search' in command:
         info = command.replace('search', '')
+
         general = wikipedia.search(info, 100)
+=======
+        general = wikipedia.search(info, 20)
+
         print(general)
         talk(general)
     elif 'history' in command:
         gen = command.replace('history, battle, movie review', '')
+
         small = wikipedia.summary(gen, 100)
         print(small)
         talk(small)
@@ -97,6 +134,11 @@ def run_kavi():
     elif 'memory' in command:
         bc = (psutil.virtual_memory()[2])
         talk(bc)
+=======
+        small = wikipedia.summary(gen, 20)
+        print(small)
+        talk(small)
+
     elif 'location' in command:
         loc = Nominatim(user_agent="GetLoc")
         getloc = loc.geocode("Coimbatore")
@@ -146,11 +188,30 @@ def run_kavi():
     elif 'what is your name' in command:
         talk('My devloper karunakran has named me kkavi')
     elif 'cringe' in command:
+
         talk('alright........he/she was funniest perosn')
+=======
+        talk('alright........he/she was funniest personn')
+ 
     elif 'joke' in command:
         joke = pyjokes.get_joke()
         print(joke)
         talk(joke)
+
+=======
+    elif 'i am tired' in command:
+        talk('you should take a break')
+    elif 'favorite game' in command:
+        talk('my favorite game is chess')
+    elif 'can you dance' in command:
+        talk('I cant dance as of now, but I can play some dance music')
+    elif 'how do i look' in command:
+        talk('juding from your voice, amazing')
+    elif 'can you cook' in command:
+        talk('i can cook you up amazing bedtime stories if you want')
+    elif 'who is your friend' in command:
+        talk('her name is nilla voice assistant, she was in another repository')
+
     else:
         talk('cant get it....please say it again')
 
