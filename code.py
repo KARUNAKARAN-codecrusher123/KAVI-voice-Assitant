@@ -71,13 +71,13 @@ talk("Loading your AI personal Assistant kavi")
 if __name__ == '__main__':
 
     while True:
-        talk("Tell me Sir! How can I help you?")
-        print("Tell me Sir! How can I help you?")
+        talk("Tell me! How can I help you?")
+        print("Tell me! How can I help you?")
         command = take_command().lower()
 
         if "exit" in command or "stop" in command or "shutdown" in command:
-            talk("Your AI assistant kavi is shutting down,Good bye Sir and have a good day (:")
-            print("Your AI assistant kavi is shutting down,Good bye Sir and have a good day (:")
+            talk("Your AI assistant kavi is shutting down,Good bye and have a good day (:")
+            print("Your AI assistant kavi is shutting down,Good bye and have a good day (:")
             break
 
         elif 'images' in command:
