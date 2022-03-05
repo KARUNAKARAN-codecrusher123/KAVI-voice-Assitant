@@ -1,8 +1,8 @@
 import speech_recognition as sr
 import pyttsx3
-# import pywhatkit
-# import pyjokes
-# import wikipedia
+import pywhatkit
+import pyjokes
+import wikipedia
 import webbrowser
 import requests
 from email.mime import audio
