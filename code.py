@@ -8,7 +8,7 @@ import requests
 from email.mime import audio
 from numpy import place
 from PIL import Image
-
+from setuptools import Command
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
