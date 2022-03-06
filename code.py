@@ -221,6 +221,6 @@ if __name__ == '__main__':
                       "\n description = " +
                       str(weather_description))
 
-        elif "health of pc" in command:
+        elif "health of kavi" in command:
             memory = get_memory_consumption()
             talk("I use {0:.2f} GB..".format(memory))
