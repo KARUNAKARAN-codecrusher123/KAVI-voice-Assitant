@@ -7,6 +7,7 @@ import pyjokes
 import wikipedia
 import webbrowser
 import requests
+import datetime
 from email.mime import audio
 from numpy import place
 from PIL import Image
@@ -29,6 +30,18 @@ def img_requests(txt):
 def talk(text):
     engine.say(text)
     engine.runAndWait()
+    
+def wishMe():
+    hour = int(datetime.datetime.now().hour)
+    if hour>=0 and hour<12:
+        talk("Good Morning!")
+
+    elif hour>=12 and hour<18:
+        talk("Good Afternoon!")   
+
+    else:
+       talk("Good Evening!")      
+    
 
 
 hi = 0
@@ -44,6 +57,7 @@ if hi == 0:
     print('think so good')
     talk('what can i do for you buddy')
     print('what can i do for you buddy')
+    wishMe()
 else:
     print('listening')
 
