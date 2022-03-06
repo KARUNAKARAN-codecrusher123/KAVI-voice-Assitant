@@ -7,6 +7,8 @@ import pyjokes
 import wikipedia
 import webbrowser
 import requests
+import os
+import psutil
 import datetime
 from email.mime import audio
 from numpy import place
@@ -47,7 +49,7 @@ def wishMe():
 hi = 0
 
 if hi == 0:
-    talk('hello iam kkavi')
+    talk('hello iam kavi')
     print('hello iam kavi Voice assistant')
     talk('How are you buddy!!!')
     print('How are you buddy!!!')
@@ -83,6 +85,14 @@ def take_command():
 
 print("Loading your AI personal Assistant kavi")
 talk("Loading your AI personal Assistant kavi")
+
+
+def get_memory_consumption():
+    pid = os.getpid()
+    py = psutil.Process(pid)
+    memory_use = py.memory_info()[0] / 2. ** 30
+    return memory_use
+
 
 if __name__ == '__main__':
 
@@ -239,4 +249,10 @@ if __name__ == '__main__':
                       "\n description = " +
                       str(weather_description))
 
+
+        elif "health of kavi" in command:
+            memory = get_memory_consumption()
+            talk("I use {0:.2f} GB..".format(memory))
+
             
+
