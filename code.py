@@ -1,3 +1,5 @@
+import os
+import subprocess
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
@@ -197,6 +199,18 @@ if __name__ == '__main__':
             talk("User asked to Locate")
             talk(location)
             webbrowser.open("https://www.google.nl/maps/place/" + location + "")
+        
+        elif 'open calculator' in command:
+            talk('opening calculator')
+            subprocess.call('calc.exe')
+
+        elif 'open word document' in command:
+            talk('Opening Word document')
+            os.startfile(r'WINWORD.EXE')
+
+        elif 'open notepad' in command:
+            talk('Open Notepad')
+            os.startfile(r'NOTEPAD.EXE')
 
         elif "weather" in command:
             api_key = "51d5d78391e312e72cde67174f38e770"
@@ -224,3 +238,5 @@ if __name__ == '__main__':
                       str(city_humidiy) +
                       "\n description = " +
                       str(weather_description))
+
+            
