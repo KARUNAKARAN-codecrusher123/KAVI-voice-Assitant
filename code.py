@@ -212,15 +212,40 @@ if __name__ == '__main__':
         
         elif 'open calculator' in command:
             talk('opening calculator')
-            subprocess.call('calc.exe')
+            try:
+                p=subprocess.call('calc.exe')
+            except TypeError as e:
+                pass
+            except FileNotFoundError as e:
+                print("File not found in the system!")
+                talk("File not found in the system!")
 
         elif 'open word document' in command:
             talk('Opening Word document')
-            os.startfile(r'WINWORD.EXE')
+            try:
+                p=os.startfile(r'WordPad.EXE')
+                raise p
+            except FileNotFoundError as e:
+                try:
+                    q=os.startfile(r'WINWORD.EXE')
+                    raise q
+                except TypeError as e:
+                    pass
+                except FileNotFoundError as e:
+                    print("File not found in the system!")
+                    talk("File not found in the system!")
+            except TypeError as e:
+                pass
 
         elif 'open notepad' in command:
             talk('Open Notepad')
-            os.startfile(r'NOTEPAD.EXE')
+            try:
+                p=os.startfile(r'NOTEPAD.EXE')
+            except TypeError as e:
+                pass
+            except FileNotFoundError as e:
+                print("File not found in the system!")
+                talk("File not found in the system!")
 
         elif "weather" in command:
             api_key = "51d5d78391e312e72cde67174f38e770"
