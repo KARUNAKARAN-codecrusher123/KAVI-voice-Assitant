@@ -267,7 +267,3 @@ if __name__ == '__main__':
             num = random.randint(1,10)
             talk(f"{num} is your lucky number.")
             print(f"{num} is your lucky number.")
-
-
-            
-
