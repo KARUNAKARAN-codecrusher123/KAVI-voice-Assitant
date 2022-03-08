@@ -19,7 +19,7 @@
 
 &nbsp;
 
-Are you a Newbie in Python and want to dive deep into AI/ML?
+Are you a newbie in Python and want to dive deep into AI/ML?
 
 <p align="center"><img src="https://media.giphy.com/media/l4q83E0RjRSGLXBLO/giphy.gif" width = 40%></p>
 
@@ -40,16 +40,29 @@ Then, You got here right!!
 &nbsp;
 
 ## 📌 Introduction
-Hey there, Kavi is basically a virtual assistant in which it help us to know various things. Such as it will help you in to knwo, What time it is, Whats the temp, Where am i and Translating one language to an desired language, etc. Sound's good right?
 
-The Main Motive of this project is to make you feel comfortable in building some cool stuffs and project like this.You can also start your journey to open source contribution through this project by contributing.
+Hey there! 
+Let me introduce Kavi. Kavi is basically a virtual assistant who helps us to know various things by answering our queries.
+=======
+Hey there, Kavi is basically a virtual assistant in which it help us to know various things. Such as it will help you in to know, What time it is, Whats the temp, Where am i and translating one language to a desired language, etc. Sounds good right?
 
-What we have for you here? 
+
+Imagine, suddenly some curiosity strikes your mind for knowing the unknown stuff...Boom! Kavi is there to help you out!
+
+For example, when you are rushing for your flight and while driving your car to the airport you notice all of a sudden that you forgot to put on your wrist-watch! This time you may be searching for a voice assistant so that your eyes don't get too much distracted from the roads. Don't worry. Just ask Kavi. It will answer!
+
+Only this?...Not at all..!
+
+If you ask it, Kavi will also let you know what the temperature is and also What the location it is! It can also translate one language to an desired language and can do much more stuff like this! Sounds good right?
+
+The Main Motive of this project is to make you feel comfortable in building some cool stuff and project like this.You can also start your journey to open source contribution through contributing in this project.
+
+What we have for you here?
 
 &nbsp;
 
 # Tech-Stack :
-<img alt="PYTHON" src=https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54/>
+<img alt="PYTHON" src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/>
 
 &nbsp;
 
@@ -83,9 +96,9 @@ You can refer to the following articles on the basics of Git and Github and also
 ## 💻 Languages used in this project
 &nbsp;
 <p align="center">
-<img height="200" width ="200" src = "PYTHON_logo_and_wordmark.svg"></img>
+<img height="200" width ="200" src = "https://user-images.githubusercontent.com/76551267/156239658-1cee08d6-0822-4607-9b7b-034f929909e9.png"></img>
 
-How it works:-https://user-images.githubusercontent.com/66834895/152769683-c30646af-9265-41d2-97ab-6ba0d34992a4.mp4
+## ⭐ How it works ? 
+https://user-images.githubusercontent.com/66834895/152769683-c30646af-9265-41d2-97ab-6ba0d34992a4.mp4
 
 ![bot](https://user-images.githubusercontent.com/66834895/152777868-d8a5a815-d8e4-4f4f-90a6-4c13d8b5fe5d.jpg)
-
