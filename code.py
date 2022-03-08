@@ -1,4 +1,5 @@
 from email.mime import audio
+from ipaddress import ip_address
 from numpy import place
 from setuptools import Command
 import speech_recognition as sr
@@ -64,6 +65,7 @@ def take_command():
             return "Not Found"
             print("command")
         return command
+
 
 print("Loading your AI personal Assistant kavi")
 talk("Loading your AI personal Assistant kavi")
@@ -149,6 +151,15 @@ if __name__=='__main__':
             joke = pyjokes.get_joke()
             print(joke)
             talk(joke)
+
+        elif 'get my ip' in command:
+            ip_address=requests.get('https://api64.ipify.org?format=json').json()
+            ip=ip_address
+            print(f'Your ip address is :- {ip["ip"]}')
+            talk(f'Your ip address is :- {ip["ip"]}')
+            
+            
+           
 
         elif "where is" in command:
             command = command.replace("where is", "")
