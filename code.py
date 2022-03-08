@@ -222,6 +222,12 @@ if __name__ == '__main__':
             talk('Open Notepad')
             os.startfile(r'NOTEPAD.EXE')
 
+        elif 'get my ip' in command:
+            ip_address=requests.get('https://api64.ipify.org?format=json').json()
+            ip=ip_address
+            print(f'Your ip address is :- {ip["ip"]}')
+            talk(f'Your ip address is :- {ip["ip"]}')    
+
         elif "weather" in command:
             api_key = "51d5d78391e312e72cde67174f38e770"
             base_url = "https://api.openweathermap.org/data/2.5/weather?"
