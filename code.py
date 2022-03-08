@@ -14,6 +14,7 @@ from email.mime import audio
 from numpy import place
 from PIL import Image
 from setuptools import Command
+import random
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -247,6 +248,12 @@ if __name__ == '__main__':
                 print("File not found in the system!")
                 talk("File not found in the system!")
 
+        elif 'get my ip' in command:
+            ip_address=requests.get('https://api64.ipify.org?format=json').json()
+            ip=ip_address
+            print(f'Your ip address is :- {ip["ip"]}')
+            talk(f'Your ip address is :- {ip["ip"]}')    
+
         elif "weather" in command:
             api_key = "51d5d78391e312e72cde67174f38e770"
             base_url = "https://api.openweathermap.org/data/2.5/weather?"
@@ -278,6 +285,16 @@ if __name__ == '__main__':
         elif "health of kavi" in command:
             memory = get_memory_consumption()
             talk("I use {0:.2f} GB..".format(memory))
-
-            
-
+        
+        elif "flip a coin" in command:
+            head = random.randint(0,1)
+            if(head):
+                talk("It's a head pal!")
+                print("It's a head pal!")
+            else:
+                talk("It's a tail.")
+                print("It's a tail")
+        elif ("pick" in command and "number"in command) or ("choose" in command and "number" in command):
+            num = random.randint(1,10)
+            talk(f"{num} is your lucky number.")
+            print(f"{num} is your lucky number.")
