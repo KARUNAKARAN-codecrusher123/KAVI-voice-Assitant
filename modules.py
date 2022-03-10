@@ -46,6 +46,8 @@ def talk(text=None, ques=None):
                 engine.say('i can cook you up amazing bedtime stories if you want')
             elif 'who is your friend' in ques:
                 engine.say('her name is nilla voice assistant, she was in another repository')
+            else:
+                engine.say("Sorry, couldn't get you :( ")
         
     else :
         engine.say(text)
