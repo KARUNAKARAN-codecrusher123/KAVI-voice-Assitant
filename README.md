@@ -76,7 +76,7 @@ You can refer to the following articles on the basics of Git and Github and also
 - [How to create a Pull Request](https://opensource.com/article/19/7/create-pull-request-github)
 - [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
 
-## ⭐ How to use ?
+## How to use ?
 Clone the repo to your desktop/laptop. Open command prompt and go to the folders location. 
 Make sure that you have the supproted vertion of python installed, and is added to the (env) paths. (look into 'setting up stuffs.md' for information)
 Then follow the steps provided:
@@ -85,9 +85,9 @@ set up process (one time only)
 - [pip install -r requirements.txt]
 
 running process (whenever you want to run the application)
-- [python main.py]
+- [python main.py] 
 
-&nbsp;
+&nbsp; 
 
   ## 💥 How to Contribute?
 
