@@ -1,3 +1,4 @@
+# importing the libraries 
 import os
 import subprocess
 from PIL import Image
@@ -12,16 +13,18 @@ import datetime
 import random
 
 
+# setting the engine properties like voice and volumne
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 
+# main talk function, that will be used to provide voice output to the user
 def talk(text=None, ques=None):
     if text==None:
+        # simple talk responses (input => ques)
         if(ques!=None):  
             # talk to kavi like a buddy :)
-
             if 'are you single' in ques :
                 engine.say('no......um.i am in relationship with wireless devices')
             elif 'do you like me' in ques:
@@ -50,20 +53,26 @@ def talk(text=None, ques=None):
                 engine.say("Sorry, couldn't get you :( ")
         
     else :
+        # vocalize text output 
         engine.say(text)
     engine.runAndWait()
     return False
 
 
+# for displaying images, given resolution(type) or name(ctx)
 def image(type, ctx=None):
+    # extract image requirements to usable format
     if (type>5 or type<=0):
         return True 
     elif type ==5:
         ctx.replace("comma", ',')
         txt = '?'+ctx
     else: 
+        # type 0-4 have default resolutions to choose from
         list1 = ['1280x720', '1920x1080', '2048x1080', '5096x2160']
         txt = list1[type-1]
+    
+    # display image
     response = requests.get("https://source.unsplash.com/random/{0}".format(txt))
     file = open('container.jpg','wb')
     file.write(response.content)
@@ -73,12 +82,15 @@ def image(type, ctx=None):
     return False
 
 
+# playing the song on default browser
 def play(song, genre=None, artist=None, lyrist=None):
+    # to play random playlist, based on (genre/artist/lyrist)
     if song=="random":
         # code for getting genre/artist/lyrist etc
         # and generating a random playlist.
         # ask if user would like a song or on loop(playlist).
         pass
+    # playing via song name
     else:
         talk("playing your requested song "+song+", please wait!")
         print("playing",song)
@@ -86,9 +98,12 @@ def play(song, genre=None, artist=None, lyrist=None):
     return False
 
 
-def info(text, search=False, summary=False, line =10, wordCount=100):
+# look up information on wikipedia / gain knowledge
+def info(text, search=False, summary=False, line =5, wordCount=20):
+    # to look for varieties/search results(search)
     if(search):
         information = wikipedia.search(text, wordCount)
+    # to look for any information/person/history/reviews etc (summary)
     elif(summary):
         information = wikipedia.summary(text, line)
     print(information)
@@ -96,18 +111,22 @@ def info(text, search=False, summary=False, line =10, wordCount=100):
     return False
 
 
+# sent msgs on wattsapp, after providing the number(no) and text(default as of now)
 def whattsapp(no="+91 93611 40968"):
+    # default test 'hello iam kavi,my boss has told me to text any important info'
     pywhatkit.sendwhatmsg(no, "hello iam kavi,my boss has told me to text any important info",13, 58)
     print("Successfully Sent!")
     return False
 
 
+# look for 'place' on google maps
 def locate(place):
     talk("user asked to locate "+place)
     webbrowser.open("https://www.google.nl/maps/place/" + place + "")
     return False
 
 
+# opening some file/editor on the users computer. (currently supported : notepad and calculator)
 def open(file):
     if file == 'calculator':
         subprocess.call("calc.exe")
@@ -120,12 +139,16 @@ def open(file):
     return False
 
 
+# get the weather condition (temperature & humidity) of a 'location'
 def weather(location):
+    # extracting weather 
     api_key = "51d5d78391e312e72cde67174f38e770"
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
     complete_url = base_url + "appid=" + api_key + "&q=" + location
     result = requests.get(complete_url)
     x = result.json()
+
+    # relaying the output to user
     if x["cod"] != "404":
         weather = x["main"]
         talk("Temperature of " + str(location) + " in kelvin unit is " +
@@ -147,6 +170,7 @@ def weather(location):
     return False
 
 
+# provide the memory consumption of the voice assistant
 def health(ctx):
     pid = os.getpid()
     py = psutil.Process(pid)
@@ -155,6 +179,7 @@ def health(ctx):
     return False
 
 
+# provide the ip address of the user
 def IP(ctx):
     ip_address=requests.get('https://api64.ipify.org?format=json').json()
     ip=ip_address
@@ -163,6 +188,7 @@ def IP(ctx):
     return False
 
 
+# for greetings
 def wishMe():
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
@@ -176,6 +202,7 @@ def wishMe():
     return 
 
 
+# coin flipping 
 def flip_a_coin(ctx):
     mapping = {0:'head', 1:"tail"}
     key = random.randint(0,1)
@@ -184,6 +211,7 @@ def flip_a_coin(ctx):
     return False
 
 
+# choosing a random no for the user
 def lucky_no(ctx):
     num = random.randint(1,10)
     print(f"{num} is your lucky number.")
@@ -191,6 +219,7 @@ def lucky_no(ctx):
     return False
 
 
+# introduction for the beginning of the application
 def intro():
     print('hello iam kavi Voice assistant')
     talk('hello iam kavi')

@@ -1,27 +1,35 @@
+# importing functions and libraries
 from modules import *
 import speech_recognition as sr
 import pyttsx3
 import sys
 
-from email.mime import audio
-from numpy import place
-from setuptools import Command
+#from email.mime import audio
+#from numpy import place
+#from setuptools import Command
 
+
+# mapping of -- to functions
 mapping = {'play':play, 'listen':play, 'images':image, 'where is':locate,
     'locate':locate, 'wattsapp':whattsapp, 'open':open, 'weather':weather,
     'who is':info, 'search':info, 'movie review':info, 'history':info, 'get my ip':IP,
     'flip a coin':flip_a_coin, 'pick':lucky_no, 'choose':lucky_no, 'health of kavi':health
 }
  
+
+# setting up the listener and speaker
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
+engine.setProperty('volume',6.0) 
 
 
+# function to take in user input/voice command
 def take_command():
     r = sr.Recognizer()
-    while True:
+    # try taking in command
+    while True: 
         with sr.Microphone() as source:
             print("Listening...")
             talk("listening.....")
@@ -33,11 +41,13 @@ def take_command():
                 return command
 
             except Exception as e:
+                # ask user to repeat if there was some error getting/recognizing it clearly 
                 talk("Pardon me,Please say that again")
                 print("Pardon me,Please say that again")    
     return 
 
 
+# choose the category of function the user could be looking for, in his statement
 def choose(command):
     for key in mapping.keys():
         if key in command:
@@ -46,6 +56,7 @@ def choose(command):
         return '', talk
 
 
+# main running function, as lonk as the user does not asks Kavi to stop.
 def func():
     talk("Tell me! How can I help you?")
     print("Tell me! How can I help you?")
@@ -55,12 +66,15 @@ def func():
     else :
         key, task = choose(command)
         notdone =True
+        # see if the task is done or not. 
         while(notdone):
-            
+            # in done, take in the next command
+            # if not done, try doing it again or provide the error 
+
             if key=='':
                 notdone = task(ques=command)
             elif key == 'images':
-                # provide option in frontend instead ;-;
+                # provide option in frontend instead 
                 print("""Please provide an option for Image
                     # 1, HD Random Picture
                     # 2, FHD Random Picture
@@ -107,7 +121,7 @@ def func():
         
         return True
 
-
+# running loop of the main function 
 if __name__ == '__main__':
     intro()
     x = True
