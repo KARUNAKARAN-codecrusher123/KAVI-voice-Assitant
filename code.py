@@ -7,7 +7,6 @@ import pyjokes
 import wikipedia
 import webbrowser
 import requests
-import os
 import psutil
 import datetime
 from email.mime import audio
