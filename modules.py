@@ -107,7 +107,7 @@ def locate(place):
 
 
 def open(file):
-    if file == 'Calculator':
+    if file == 'calculator':
         subprocess.call("calc.exe")
     else:
         try:
