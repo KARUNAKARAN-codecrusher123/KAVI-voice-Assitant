@@ -231,6 +231,7 @@ def volume_mute(ctx):
      import pyautogui
      pyautogui.press('volumemute')
      return False
+    
 # battery status
 def battery_status(ctx):
      battery=psutil.sensors_battery()
@@ -238,6 +239,7 @@ def battery_status(ctx):
      talk(f"we have {str(percentage)} percent of battery left")
      print(f"we have {percentage} percent of battery left")
      return False
+    
 # introduction for the beginning of the application
 def intro():
     print('hello iam kavi Voice assistant')
