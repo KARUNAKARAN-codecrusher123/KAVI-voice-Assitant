@@ -218,7 +218,20 @@ def lucky_no(ctx):
     talk(f"{num} is your lucky number.")
     return False
 
-
+# volume control
+def volume_increaser(ctx):
+    import pyautogui
+    pyautogui.press('volumeup')
+    return False
+def volume_decreaser(ctx):
+    import pyautogui
+    pyautogui.press('volumedown')
+    return False
+def volume_mute(ctx):
+     import pyautogui
+     pyautogui.press('volumemute')
+     return False
+    
 # introduction for the beginning of the application
 def intro():
     print('hello iam kavi Voice assistant')
