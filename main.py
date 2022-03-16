@@ -15,7 +15,7 @@ mapping = {'play':play, 'listen':play, 'images':image, 'where is':locate,
     'who is':info, 'search':info, 'movie review':info, 'history':info, 'get my ip':IP,
     'flip a coin':flip_a_coin, 'pick':lucky_no, 'choose':lucky_no, 'health of kavi':health,
      'volume up':volume_increaser,'increase the volume':volume_increaser,'volume down':volume_decreaser,
-     'decrease the volume':volume_decreaser,'mute':volume_mute
+     'decrease the volume':volume_decreaser,'mute':volume_mute,"how much power left" :battery_status,"battery":battery_status
 }
  
 
