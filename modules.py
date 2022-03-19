@@ -218,6 +218,28 @@ def lucky_no(ctx):
     return False
 
 
+# volume control
+def volume_increaser(ctx):
+    import pyautogui
+    pyautogui.press('volumeup')
+    return False
+def volume_decreaser(ctx):
+    import pyautogui
+    pyautogui.press('volumedown')
+    return False
+def volume_mute(ctx):
+     import pyautogui
+     pyautogui.press('volumemute')
+     return False
+    
+# battery status
+def battery_status(ctx):
+     battery=psutil.sensors_battery()
+     percentage=battery.percent
+     talk(f"we have {str(percentage)} percent of battery left")
+     print(f"we have {percentage} percent of battery left")
+     return False
+    
 # Fetching a joke.
 def get_joke():
 
@@ -232,6 +254,7 @@ def get_joke():
             joke = jokes['setup'].replace(
                 '\"', '') +'\n'+ jokes['delivery'].replace('\"', '')
     return joke
+
 
 # introduction for the beginning of the application
 def intro():
