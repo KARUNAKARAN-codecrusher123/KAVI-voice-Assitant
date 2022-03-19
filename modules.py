@@ -8,7 +8,6 @@ import pyttsx3
 import webbrowser
 import requests
 import psutil
-import pyjokes
 import datetime
 import random
 
@@ -34,7 +33,7 @@ def talk(text=None, ques=None):
             elif 'cringe' in ques:
                 engine.say('alright........he/she was funniest perosn')
             elif 'joke' in ques:
-                joke = pyjokes.get_joke()
+                joke = get_joke()
                 print(joke)
                 engine.say(joke)
             elif 'i am tired' in ques:
@@ -218,6 +217,7 @@ def lucky_no(ctx):
     talk(f"{num} is your lucky number.")
     return False
 
+
 # volume control
 def volume_increaser(ctx):
     import pyautogui
@@ -240,6 +240,22 @@ def battery_status(ctx):
      print(f"we have {percentage} percent of battery left")
      return False
     
+# Fetching a joke.
+def get_joke():
+
+    url = 'https://v2.jokeapi.dev/joke/Any'
+    response = requests.get(url)
+    jokes = response.json()
+    joke = 'The funniest thing about APIs is that they never work on time.'
+    if jokes['error'] == False:
+        if jokes['type'] == 'single':
+            joke = jokes['joke'].replace('\"', '')
+        else:
+            joke = jokes['setup'].replace(
+                '\"', '') +'\n'+ jokes['delivery'].replace('\"', '')
+    return joke
+
+
 # introduction for the beginning of the application
 def intro():
     print('hello iam kavi Voice assistant')
@@ -254,3 +270,4 @@ def intro():
     talk('what can i do for you buddy')
     talk("")
     return 
+
