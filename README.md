@@ -25,7 +25,7 @@ Are you a newbie in Python and want to dive deep into AI/ML?
 
 &nbsp;
 
-Are you looking for some awesome Python Projects in which each and every project you will learn cool stuffs in AI/ML?
+Are you looking for some awesome Python projects in which each and every project you will learn cool stuff in AI/ML?
 
 <p align="center"><img src="https://media.giphy.com/media/Uq4XZx6xm8bdVgrv9T/giphy.gif" width = 40%></p>
 
@@ -44,20 +44,20 @@ Then, You got here right!!
 Hey there! 
 Let me introduce Kavi. Kavi is basically a virtual assistant who helps us to know various things by answering our queries.
 =======
-Hey there, Kavi is basically a virtual assistant in which it help us to know various things. Such as it will help you in to know, What time it is, Whats the temp, Where am i and translating one language to a desired language, etc. Sounds good right?
+Hey there, Kavi is basically a virtual assistant in which it helps us to know various things. Such as it will help you into know, What time it is, Whats the temp, Where am I and translating one language to a desired language, etc. Sounds good, right?
 
 
 Imagine, suddenly some curiosity strikes your mind for knowing the unknown stuff...Boom! Kavi is there to help you out!
 
-For example, when you are rushing for your flight and while driving your car to the airport you notice all of a sudden that you forgot to put on your wrist-watch! This time you may be searching for a voice assistant so that your eyes don't get too much distracted from the roads. Don't worry. Just ask Kavi. It will answer!
+For example, when you are rushing for your flight and while driving your car to the airport you notice all of a sudden that you forgot to put on your wristwatch! This time you maybe searching for a voice assistant so that your eyes don't get too distracted from the roads. Don't worry. Just ask Kavi. It will answer!
 
 Only this?...Not at all..!
 
 If you ask it, Kavi will also let you know what the temperature is and also What the location it is! It can also translate one language to an desired language and can do much more stuff like this! Sounds good right?
 
-The Main Motive of this project is to make you feel comfortable in building some cool stuff and project like this.You can also start your journey to open source contribution through contributing in this project.
+The Main motive of this project is to make you feel comfortable in building some cool stuff and project like this.You can also start your journey to open source contribution through contributing to this project.
 
-What we have for you here?
+What do we have for you here?
 
 &nbsp;
 
@@ -78,7 +78,7 @@ You can refer to the following articles on the basics of Git and Github and also
 
 ## How to use ?
 Clone the repo to your desktop/laptop. Open command prompt and go to the folders location. 
-Make sure that you have the supproted vertion of python installed, and is added to the (env) paths. (look into 'setting up stuffs.md' for information)
+Make sure that you have the supported version of python installed, and is added to the (env) paths. (look into 'setting up stuffs.md' for information)
 Then follow the steps provided:
 
 set up process (one time only)
@@ -97,7 +97,7 @@ running process (whenever you want to run the application)
 - Take a look at the Existing [Issues](https://github.com/KARUNAKARAN-codecrusher123/KAVI-voice-Assitant/issues) or create your own Issues!
 - Wait for the Issue to be assigned to you after which you can start working on it.
 - Fork the Repo and create a Branch for any Issue that you are working upon.
-- Create a Pull Request which will be promptly reviewed and suggestions would be added to improve it.
+- Create a Pull Request which will be promptly reviewed and suggestions will be added to improve it.
 - Add Screenshots to help us know what this Script is all about.
 - Having difficulty in contributing? Read the [Contribution Guide](https://github.com/karunakaran186/KAVI-voice-Assitant/blob/main/Contribution.md) for a detailed explanation.
 
