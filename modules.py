@@ -12,26 +12,35 @@ import datetime
 import random
 import time
 
-# setting the engine properties like voice and volumne
+
+
+# setting the engine properties like voice and volume
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 
-# main talk function, that will be used to provide voice output to the user
+
 def talk(text=None, ques=None):
+
+    '''
+
+    This function will give voice output to the user(Fun QnA with Kavi).
+
+    '''
+
     if text==None:
         # simple talk responses (input => ques)
         if(ques!=None):  
             # talk to kavi like a buddy :)
             if 'are you single' in ques :
-                engine.say('no......um.i am in relationship with wireless devices')
+                engine.say('I am in relationship with wireless devices')
             elif 'do you like me' in ques:
                 engine.say('yes boss definitely')
             elif 'what is your name' in ques:
                 engine.say('My devloper karunakran has named me kkavi')
             elif 'cringe' in ques:
-                engine.say('alright........he/she was funniest perosn')
+                engine.say('alright........he/she was funniest person')
             elif 'joke' in ques:
                 joke = get_joke()
                 print(joke)
@@ -47,7 +56,7 @@ def talk(text=None, ques=None):
             elif 'can you cook' in ques:
                 engine.say('i can cook you up amazing bedtime stories if you want')
             elif 'who is your friend' in ques:
-                engine.say('her name is nilla voice assistant, she was in another repository')
+                engine.say('her name is nilla voice assistant, she is in another repository')
             else:
                 engine.say("Sorry, couldn't get you :( ")
         
@@ -60,10 +69,12 @@ def talk(text=None, ques=None):
 
 # for displaying images, given resolution(type) or name(ctx)
 def image(type, ctx=None):
-    # extract image requirements to usable format
+    '''
+    This function extracts image to usuable format and displays them. 
+    '''
     if (type>5 or type<=0):
         return True 
-    elif type ==5:
+    elif type == 5:
         ctx.replace("comma", ',')
         txt = '?'+ctx
     else: 
@@ -81,9 +92,15 @@ def image(type, ctx=None):
     return False
 
 
-# playing the song on default browser
+# plays the song(default browser)
 def play(song, genre=None, artist=None, lyrist=None):
-    # to play random playlist, based on (genre/artist/lyrist)
+    
+    '''
+    
+    This functions plays songs/playlist on user commands.
+    
+    '''
+
     if song=="random":
         # code for getting genre/artist/lyrist etc
         # and generating a random playlist.
@@ -99,7 +116,13 @@ def play(song, genre=None, artist=None, lyrist=None):
 
 # look up information on wikipedia / gain knowledge
 def info(text, search=False, summary=False, line =5, wordCount=20):
-    # to look for varieties/search results(search)
+
+    ''' 
+
+    This functions looks information on wikipedia on user commands.
+
+    '''
+
     if(search):
         information = wikipedia.search(text, wordCount)
     # to look for any information/person/history/reviews etc (summary)
@@ -110,9 +133,14 @@ def info(text, search=False, summary=False, line =5, wordCount=20):
     return False
 
 
-# sent msgs on wattsapp, after providing the number(no) and text(default as of now)
-def whattsapp(no="+91 93611 40968"):
-    # default test 'hello iam kavi,my boss has told me to text any important info'
+
+def whatsapp(no="+91 93611 40968"):
+
+    '''
+
+    This function texts whatsapp messages.
+
+    '''
     pywhatkit.sendwhatmsg(no, "hello iam kavi,my boss has told me to text any important info",13, 58)
     print("Successfully Sent!")
     return False
@@ -120,13 +148,27 @@ def whattsapp(no="+91 93611 40968"):
 
 # look for 'place' on google maps
 def locate(place):
+
+    '''
+
+    This function looks for places on google maps.
+
+    '''
+
     talk("user asked to locate "+place)
     webbrowser.open("https://www.google.nl/maps/place/" + place + "")
     return False
 
 
-# opening some file/editor on the users computer. (currently supported : notepad and calculator)
+# opens files/editors (currently supported : notepad and calculator)
 def open(file):
+
+    '''
+
+    This functions opens files/editors.
+
+    '''
+
     if file == 'calculator':
         subprocess.call("calc.exe")
     else:
@@ -140,7 +182,13 @@ def open(file):
 
 # get the weather condition (temperature & humidity) of a 'location'
 def weather(location):
-    # extracting weather 
+
+    '''
+
+    This function shows the weather information.
+
+    '''
+
     api_key = "51d5d78391e312e72cde67174f38e770"
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
     complete_url = base_url + "appid=" + api_key + "&q=" + location
@@ -169,8 +217,14 @@ def weather(location):
     return False
 
 
-# provide the memory consumption of the voice assistant
 def health(ctx):
+
+    '''
+
+    This function shows details of memory consumption of voice assistant.
+
+    '''
+
     pid = os.getpid()
     py = psutil.Process(pid)
     memory_use = py.memory_info()[0] / 2. ** 30
@@ -178,8 +232,14 @@ def health(ctx):
     return False
 
 
-# provide the ip address of the user
 def IP(ctx):
+
+    '''
+
+    This function provides IP Address of the user.
+
+    '''
+
     ip_address=requests.get('https://api64.ipify.org?format=json').json()
     ip=ip_address
     print(f'Your ip address is :- {ip["ip"]}')
@@ -187,8 +247,15 @@ def IP(ctx):
     return False
 
 
-# for greetings
+
 def wishMe():
+
+    '''
+
+    wishes the user according to time.
+
+    '''
+
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         talk("Good Morning!")
@@ -201,8 +268,15 @@ def wishMe():
     return 
 
 
-# coin flipping 
+# coin flipping game
 def flip_a_coin(ctx):
+
+    '''
+
+    This function generates random coin side.
+
+    '''
+
     mapping = {0:'head', 1:"tail"}
     key = random.randint(0,1)
     talk(f"It's a {mapping[key]} pal!")
@@ -210,8 +284,14 @@ def flip_a_coin(ctx):
     return False
 
 
-# choosing a random no for the user
+
 def lucky_no(ctx):
+
+    '''
+
+    Generates any random number between 1 to 10.
+
+    '''
     num = random.randint(1,10)
     print(f"{num} is your lucky number.")
     talk(f"{num} is your lucky number.")
@@ -220,28 +300,60 @@ def lucky_no(ctx):
 
 # volume control
 def volume_increaser(ctx):
+    '''
+
+    increases volume
+
+    '''
     import pyautogui
     pyautogui.press('volumeup')
     return False
+
 def volume_decreaser(ctx):
+    '''
+
+    decreases volume
+
+    '''
     import pyautogui
     pyautogui.press('volumedown')
     return False
+
 def volume_mute(ctx):
-     import pyautogui
-     pyautogui.press('volumemute')
-     return False
+    '''
+
+    mutes on command
+
+    '''
+    import pyautogui
+    pyautogui.press('volumemute')
+    return False
     
+
 # battery status
 def battery_status(ctx):
-     battery=psutil.sensors_battery()
-     percentage=battery.percent
-     talk(f"we have {str(percentage)} percent of battery left")
-     print(f"we have {percentage} percent of battery left")
-     return False
+
+    '''
+
+    shows battery status details
+
+    '''
+
+    battery=psutil.sensors_battery()
+    percentage=battery.percent
+    talk(f"we have {str(percentage)} percent of battery left")
+    print(f"we have {percentage} percent of battery left")
+    return False
     
-# Fetching a joke.
+
+# Fetches jokes
 def get_joke():
+
+    '''
+
+    This function tells jokes to user.
+
+    '''
 
     url = 'https://v2.jokeapi.dev/joke/Any'
     response = requests.get(url)
@@ -255,18 +367,20 @@ def get_joke():
                 '\"', '') +'\n'+ jokes['delivery'].replace('\"', '')
     return joke
 
-# introduction for the beginning of the application
+
+
 def intro():
-    print('hello iam kavi Voice assistant')
-    talk('hello iam kavi')
-    print('How are you buddy!!!')
-    talk('How are you buddy!!!')
-    print('doing good right?????')
-    talk('doing good right?????')
-    print('think so good')
-    talk('think so good')
-    print('what can i do for you buddy')
-    talk('what can i do for you buddy')
+
+    '''
+
+    This function introduces Kavi to users.
+
+    '''
+
+    print('Hi, this is your voice assistant Kavi')
+    talk('Hi, this is your voice assistant Kavi.')
+    print('What can i do for you?')
+    talk('What can i do for you buddy?')
     talk("")
     return 
 
