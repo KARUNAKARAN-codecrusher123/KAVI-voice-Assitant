@@ -11,12 +11,51 @@ import psutil
 import datetime
 import random
 import time
+import speech_recognition as sr
 
 # setting the engine properties like voice and volumne
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
+
+
+#to do list
+def take_notes():
+    r5 = sr.Recognizer()  
+    with sr.Microphone() as source:
+        print('What is your "TO DO LIST" for today')
+        engine.say('What is your "TO DO LIST" for today')
+        engine.runAndWait()
+        audio = r5.listen(source)
+        audio = r5.recognize_google(audio)
+        print(audio)
+       # today = date.today()
+       # today = str(today)
+        with open("kavi.txt","a") as f:
+            #f.write('\n')
+            #f.write(today)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            #f.write('......')
+            #f.write('\n')
+            f.close() 
+        engine.say('Notes Taken')
+        engine.runAndWait()
+
+def show_notes():
+    with open("kavi.txt", "r") as f:
+        task = f.read()
+        task = task.split('......')
+    engine.say(task[-2])
+    engine.runAndWait()
 
 # main talk function, that will be used to provide voice output to the user
 def talk(text=None, ques=None):
@@ -36,8 +75,7 @@ def talk(text=None, ques=None):
                 joke = get_joke()
                 print(joke)
                 engine.say(joke)
-            elif 'alarm' in ques:
-                setalarm()        
+                   
             elif 'i am tired' in ques:
                 engine.say('you should take a break')
             elif 'favorite game' in ques:
@@ -257,85 +295,15 @@ def get_joke():
                 '\"', '') +'\n'+ jokes['delivery'].replace('\"', '')
     return joke
 
-# Set alarm
-# If video URL file does not exist, create one
-if not os.path.isfile("youtube_alarm_videos.txt"):
-    print('Creating "youtube_alarm_videos.txt"...')
-    with open("youtube_alarm_videos.txt", "w") as alarm_file:
-        alarm_file.write("https://www.youtube.com/watch?v=anM6uIZvx74")
 
 
-def check_alarm_input(alarm_time):
-    """Checks to see if the user has entered in a valid alarm time"""
-    if len(alarm_time) == 1:  # [Hour] Format
-        if alarm_time[0] < 24 and alarm_time[0] >= 0:
-            return True
-    if len(alarm_time) == 2:  # [Hour:Minute] Format
-        if alarm_time[0] < 24 and alarm_time[0] >= 0 and \
-           alarm_time[1] < 60 and alarm_time[1] >= 0:
-            return True
-    elif len(alarm_time) == 3:  # [Hour:Minute:Second] Format
-        if alarm_time[0] < 24 and alarm_time[0] >= 0 and \
-           alarm_time[1] < 60 and alarm_time[1] >= 0 and \
-           alarm_time[2] < 60 and alarm_time[2] >= 0:
-            return True
-    return False
-
-# Get user input for the alarm time
 
 
-def setalarm():
-    print("Set a time for the alarm (Ex. 06:30 or 18:30:00)")
-    talk("Set the alarm in this format")
-    while True:
-        alarm_input = input(">> ")
-        try:
-            alarm_time = [int(n) for n in alarm_input.split(":")]
-            if check_alarm_input(alarm_time):
-                break
-            else:
-                raise ValueError
-        except ValueError:
-            print("ERROR: Enter time in HH:MM or HH:MM:SS format")
-    calc(alarm_time)
 
 
-def calc(alarm_time):
 
-    # Convert the alarm time from [H:M] or [H:M:S] to seconds
-    # Number of seconds in an Hour, Minute, and Second
-    seconds_hms = [3600, 60, 1]
-    alarm_seconds = sum(
-        [a*b for a, b in zip(seconds_hms[:len(alarm_time)], alarm_time)])
 
-    # Get the current time of day in seconds
-    now = datetime.datetime.now()
-    current_time_seconds = sum(
-        [a*b for a, b in zip(seconds_hms, [now.hour, now.minute, now.second])])
 
-    # Calculate the number of seconds until alarm goes off
-    time_diff_seconds = alarm_seconds - current_time_seconds
-
-    # If time difference is negative, set alarm for next day
-    if time_diff_seconds < 0:
-        time_diff_seconds += 86400  # number of seconds in a day
-
-    # Display the amount of time until the alarm goes off
-    print("Alarm set to go off in %s" %
-          datetime.timedelta(seconds=time_diff_seconds))
-
-    # Sleep until the alarm goes off
-    time.sleep(time_diff_seconds)
-
-    # Time for the alarm to go off
-    talk("Wake Up!")
-
-    # Load list of possible video URLs
-    with open("youtube_alarm_videos.txt", "r") as alarm_file:
-        videos = alarm_file.readlines()
-
-    # Open a random video from the list
-    webbrowser.open(random.choice(videos))
 
   
 
