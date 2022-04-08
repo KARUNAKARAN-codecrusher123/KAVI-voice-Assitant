@@ -11,7 +11,7 @@ import sys
 
 # mapping of -- to functions
 mapping = {'play':play, 'listen':play, 'images':image, 'where is':locate,
-    'locate':locate, 'wattsapp':whattsapp, 'open':open, 'weather':weather,
+    'locate':locate, 'whatsapp':whatsapp, 'open':open, 'weather':weather,
     'who is':info, 'search':info, 'movie review':info, 'history':info, 'get my ip':IP,
     'flip a coin':flip_a_coin, 'pick':lucky_no, 'choose':lucky_no, 'health of kavi':health,
      'volume up':volume_increaser,'increase the volume':volume_increaser,'volume down':volume_decreaser,
@@ -27,8 +27,12 @@ engine.setProperty('voice', voices[1].id)
 engine.setProperty('volume',6.0) 
 
 
-# function to take in user input/voice command
+
 def take_command():
+    '''
+    This function takes users's voice command and recognizes them.
+    '''
+
     r = sr.Recognizer()
     # try taking in command
     while True: 
@@ -49,8 +53,12 @@ def take_command():
     return 
 
 
-# choose the category of function the user could be looking for, in his statement
+
 def choose(command):
+    '''
+    This function choose the command according to mapping.
+    '''
+
     for key in mapping.keys():
         if key in command:
             return key, mapping[key]
@@ -58,8 +66,12 @@ def choose(command):
         return '', talk
 
 
-# main running function, as lonk as the user does not asks Kavi to stop.
+
 def func():
+    '''
+    This function takes the user's command continuously till the user want to quit.
+    '''
+    
     talk("Tell me! How can I help you?")
     print("Tell me! How can I help you?")
     command = take_command().lower()
@@ -133,6 +145,7 @@ def func():
                 notdone = task(command.replace(key, '').lstrip())
         
         return True
+
 
 # running loop of the main function 
 if __name__ == '__main__':
