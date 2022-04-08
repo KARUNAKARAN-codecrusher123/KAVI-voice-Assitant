@@ -11,6 +11,7 @@ import psutil
 import datetime
 import random
 import time
+import speech_recognition as sr
 
 
 
@@ -20,6 +21,46 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 
+
+
+#to do list
+def take_notes():
+    r5 = sr.Recognizer()  
+    with sr.Microphone() as source:
+        print('What is your "TO DO LIST" for today')
+        engine.say('What is your "TO DO LIST" for today')
+        engine.runAndWait()
+        audio = r5.listen(source)
+        audio = r5.recognize_google(audio)
+        print(audio)
+       # today = date.today()
+       # today = str(today)
+        with open("kavi.txt","a") as f:
+            #f.write('\n')
+            #f.write(today)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            f.write(audio)
+            f.write('\n')
+            #f.write('......')
+            #f.write('\n')
+            f.close() 
+        engine.say('Notes Taken')
+        engine.runAndWait()
+
+def show_notes():
+    with open("kavi.txt", "r") as f:
+        task = f.read()
+        task = task.split('......')
+    engine.say(task[-2])
+    engine.runAndWait()
+
+# main talk function, that will be used to provide voice output to the user
 
 def talk(text=None, ques=None):
 
@@ -44,7 +85,12 @@ def talk(text=None, ques=None):
             elif 'joke' in ques:
                 joke = get_joke()
                 print(joke)
+
+                engine.say(joke)
+                   
+
                 engine.say(joke)        
+
             elif 'i am tired' in ques:
                 engine.say('you should take a break')
             elif 'favorite game' in ques:
@@ -369,11 +415,21 @@ def get_joke():
 
 
 
+
+
+
+
+
+
+
+
+
 def intro():
 
     '''
 
     This function introduces Kavi to users.
+
 
     '''
 

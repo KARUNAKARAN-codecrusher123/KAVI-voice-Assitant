@@ -15,7 +15,7 @@ mapping = {'play':play, 'listen':play, 'images':image, 'where is':locate,
     'who is':info, 'search':info, 'movie review':info, 'history':info, 'get my ip':IP,
     'flip a coin':flip_a_coin, 'pick':lucky_no, 'choose':lucky_no, 'health of kavi':health,
      'volume up':volume_increaser,'increase the volume':volume_increaser,'volume down':volume_decreaser,
-     'decrease the volume':volume_decreaser,'mute':volume_mute,'how much power left':battery_status,'battery':battery_status
+     'decrease the volume':volume_decreaser,'mute':volume_mute,'how much power left':battery_status,'battery':battery_status, 'show notes':show_notes, 'take notes':take_notes
 }
  
 
@@ -130,6 +130,17 @@ def func():
             elif key == 'weather':
                 place = take_command()
                 notdone = task(place)
+              #take notes  
+            elif key=='take notes':
+                print('..')
+                take_notes()
+                print('Noted!!')
+              #show notes
+            elif key=='show notes':
+                print('..')
+                show_notes()
+                print('Done') 
+            
             else:
                 notdone = task(command.replace(key, '').lstrip())
         
