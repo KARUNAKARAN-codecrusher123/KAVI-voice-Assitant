@@ -25,17 +25,17 @@ Are you a newbie in Python and want to dive deep into AI/ML?
 
 &nbsp;
 
-Are you looking for some awesome Python projects in which each and every project you will learn cool stuff in AI/ML?
+Do you want some awesome Python projects where each and every project will teach you something new about AI/ML?
 
 <p align="center"><img src="https://media.giphy.com/media/Uq4XZx6xm8bdVgrv9T/giphy.gif" width = 40%></p>
 
 &nbsp;
 
-Do you want to contribute to some Awesome Python projects and showcase your creativity through it?🤩
+How about contributing to some awesome Python projects and demonstrating your creativity?
 
 <p align="center"><img src="https://media.giphy.com/media/3oEjI8vagntG7EDxgQ/giphy.gif" width = 40%></p>
 
-Then, You got here right!! 
+Then, this is the right place!! 
 
 &nbsp;
 
@@ -44,20 +44,15 @@ Then, You got here right!!
 Hey there! 
 Let me introduce Kavi. Kavi is basically a virtual assistant who helps us to know various things by answering our queries.
 =======
-Hey there, Kavi is basically a virtual assistant in which it helps us to know various things. Such as it will help you into know, What time it is, Whats the temp, Where am I and translating one language to a desired language, etc. Sounds good, right?
+Kavi is a virtual assistant that possess various features like it can tell you things like the current time, the temperature around you, or your location. Furthermore, Kavi can translate different languages and have many more features as well.
 
+Kavi is there to help you out cater your curiosity.
 
-Imagine, suddenly some curiosity strikes your mind for knowing the unknown stuff...Boom! Kavi is there to help you out!
+Imagine rushing to catch your flight and realizing all of a sudden that you forgot to put on your watch while driving to the airport! Perhaps you're looking for a voice assistant to check time and avoid getting distracted from the road. Don't worry. Just ask Kavi. It will respond!
 
-For example, when you are rushing for your flight and while driving your car to the airport you notice all of a sudden that you forgot to put on your wristwatch! This time you maybe searching for a voice assistant so that your eyes don't get too distracted from the roads. Don't worry. Just ask Kavi. It will answer!
+Our main goal is to make you feel comfortable building cool projects like this. You also have the opportunity through this project to start your contributions to open source projects.
 
-Only this?...Not at all..!
-
-If you ask it, Kavi will also let you know what the temperature is and also What the location it is! It can also translate one language to an desired language and can do much more stuff like this! Sounds good right?
-
-The Main motive of this project is to make you feel comfortable in building some cool stuff and project like this.You can also start your journey to open source contribution through contributing to this project.
-
-What do we have for you here?
+What do we have in store for you?
 
 &nbsp;
 
@@ -68,7 +63,7 @@ What do we have for you here?
 
 ## ⭐ How to get started?
 
-You can refer to the following articles on the basics of Git and Github and also contact the Project Mentors, in case you are stuck:
+You can refer to the following articles on the basics of Git and Github.In case you are stuck you can contact the Project Mentors as well.
 
 - [Watch this video to get started, if you have no clue about open source](https://youtu.be/SL5KKdmvJ1U)
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
@@ -77,7 +72,8 @@ You can refer to the following articles on the basics of Git and Github and also
 - [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
 
 ## How to use ?
-Clone the repo to your desktop/laptop. Open command prompt and go to the folders location. 
+Clone the repo to your desktop/laptop. 
+Open command prompt and go to the folders location. 
 Make sure that you have the supported version of python installed, and is added to the (env) paths. (look into 'setting up stuffs.md' for information)
 Then follow the steps provided:
 
