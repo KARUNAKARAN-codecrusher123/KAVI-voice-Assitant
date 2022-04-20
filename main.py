@@ -65,7 +65,114 @@ def choose(command):
     else:
         return '', talk
 
+def capital(state):
+    if state=='Andra Pradesh':
+        talk('Amaravati')
+    elif state=='Arunachal Pradesh':
+        talk('Itanagar')
+    elif state=='Assam':
+        talk('Dispur')
+    elif state=='Bihar':
+        talk('Patna')
+    elif state=='Chhattisgarh':
+        talk('Raipur')
+    elif state=='Goa':
+        talk('Panaji')
+    elif state=='Gujarat':
+        talk('Gandhinagar')
+    elif state=='Haryana':
+        talk('Chandigarh')
+    elif state=='Himachal Pradesh':
+        talk('Shimla')
+    elif state=='Jharkhand':
+        talk('Ranchi')
+    elif state=='Karnataka':
+        talk('Bengaluru')
+    elif state=='Kerala':
+        talk('Thiruvananthapuram')
+    elif state=='Madhya Pradesh':
+        talk('Bhopal')
+    elif state=='Maharashtra':
+        talk('Mumbai')
+    elif state=='Manipur':
+        talk('Imphal')
+    elif state=='Meghalaya':
+        talk('Shillong')
+    elif state=='Mizoram':
+        talk('Aizawl')
+    elif state=='Nagaland':
+        talk('Kohima')
+    elif state=='Odisha':
+        talk('Bhubaneswar')
+    elif state=='Punjab':
+        talk('Chandigarh')
+    elif state=='Rajasthan':
+        talk('Jaipur')
+    elif state=='Sikkim':
+        talk('Gangtok')
+    elif state=='Tamil Nadu':
+        talk('Chennai')
+    elif state=='Telangana':
+        talk('Hyderabad')
+    elif state=='Tripura':
+        talk('Agartala')
+    elif state=='Uttar Pradesh':
+        talk('Lucknow')
+    elif state=='Uttarakhand':
+        talk('Dehradun in Winter and Gairsain in Summer')
+    elif state=='West Bengal':
+        talk('West Bengal')
+    elif state=='Andaman and Nicobar Islands':
+        talk('Andaman and Nicobar Islands')
+    elif state=='Dadra & Nagar Haveli and Daman & Diu':
+        talk('Daman')
+    elif state=='Delhi':
+        talk('Delhi')
+    elif state=='Jammu and Kashmir':
+        talk('Srinagar in Summer and Jammu in Winter')
+    elif state=='Lakshadweep':
+        talk('Kavaratti')
+    elif state=='Puducherry':
+        talk('Pondicherry')
+    elif state=='Ladakh':
+        talk('Leh')
+    elif state=='India':
+        talk('New Delhi')
+    else:
+        talk('Please say that again...')
+        
+def tell_month():
+    dt = datetime.datetime.today()
+    m_onth = dt.month
+    if m_onth == 1:
+        talk("it's january")
+    if m_onth == 2:
+        talk("it's february")
+    if m_onth == 3:
+        talk("it's march")
+    if m_onth == 4:
+        talk("it's april")
+    if m_onth == 5:
+        talk("it's may")
+    if m_onth == 6:
+        talk("it's june")
+    if m_onth == 7:
+        talk("it's july")
+    if m_onth == 8:
+        talk("it's august")
+    if m_onth == 9:
+        talk("it's september")
+    if m_onth == 10:
+        talk("it's october")
+    if m_onth == 11:
+        talk("it's november")
+    if m_onth == 12:
+        talk("it's december")
 
+def tell_day():
+    now = datetime.datetime.now()
+    ans=(now.strftime("%A"))
+    speak(ans)
 
 def func():
     '''
@@ -140,6 +247,16 @@ def func():
                 print('..')
                 show_notes()
                 print('Done') 
+            elif key=='capital':
+                fun_talk('Which state capital you want to know')
+                query = get_command()
+                notdone = capital(query)
+                
+            elif key=='month':
+                tell_month()
+                
+            elif key=='day' or key=='today' :
+                tell_day()
             
             else:
                 notdone = task(command.replace(key, '').lstrip())
