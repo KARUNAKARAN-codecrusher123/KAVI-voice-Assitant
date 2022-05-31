@@ -10,22 +10,21 @@ import sys
 
 
 # mapping of -- to functions
-mapping = {'play':play, 'listen':play, 'images':image, 'where is':locate,
-    'locate':locate, 'whatsapp':whatsapp, 'open':open, 'weather':weather,
-    'who is':info, 'search':info, 'movie review':info, 'history':info, 'get my ip':IP,
-    'flip a coin':flip_a_coin, 'pick':lucky_no, 'choose':lucky_no, 'health of kavi':health,
-     'volume up':volume_increaser,'increase the volume':volume_increaser,'volume down':volume_decreaser,
-     'decrease the volume':volume_decreaser,'mute':volume_mute,'how much power left':battery_status,'battery':battery_status, 'show notes':show_notes, 'take notes':take_notes
-}
- 
+mapping = {'play': play, 'listen': play, 'images': image, 'where is': locate,
+           'locate': locate, 'whatsapp': whatsapp, 'open': open, 'weather': weather,
+           'who is': info, 'search': info, 'movie review': info, 'history': info, 'get my ip': IP,
+           'flip a coin': flip_a_coin, 'pick': lucky_no, 'choose': lucky_no, 'health of kavi': health,
+           'volume up': volume_increaser, 'increase the volume': volume_increaser, 'volume down': volume_decreaser,
+           'decrease the volume': volume_decreaser, 'mute': volume_mute, 'how much power left': battery_status, 'battery': battery_status, 'show notes': show_notes, 'take notes': take_notes, 'read pdf': read_pdf_file
+           }
+
 
 # setting up the listener and speaker
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
-engine.setProperty('volume',6.0) 
-
+engine.setProperty('volume', 6.0)
 
 
 def take_command():
@@ -35,7 +34,7 @@ def take_command():
 
     r = sr.Recognizer()
     # try taking in command
-    while True: 
+    while True:
         with sr.Microphone() as source:
             print("Listening...")
             talk("listening.....")
@@ -47,11 +46,10 @@ def take_command():
                 return command
 
             except Exception as e:
-                # ask user to repeat if there was some error getting/recognizing it clearly 
+                # ask user to repeat if there was some error getting/recognizing it clearly
                 talk("Pardon me,Please say that again")
-                print("Pardon me,Please say that again")    
-    return 
-
+                print("Pardon me,Please say that again")
+    return
 
 
 def choose(command):
@@ -65,82 +63,84 @@ def choose(command):
     else:
         return '', talk
 
+
 def capital(state):
-    if state=='Andra Pradesh':
+    if state == 'Andra Pradesh':
         talk('Amaravati')
-    elif state=='Arunachal Pradesh':
+    elif state == 'Arunachal Pradesh':
         talk('Itanagar')
-    elif state=='Assam':
+    elif state == 'Assam':
         talk('Dispur')
-    elif state=='Bihar':
+    elif state == 'Bihar':
         talk('Patna')
-    elif state=='Chhattisgarh':
+    elif state == 'Chhattisgarh':
         talk('Raipur')
-    elif state=='Goa':
+    elif state == 'Goa':
         talk('Panaji')
-    elif state=='Gujarat':
+    elif state == 'Gujarat':
         talk('Gandhinagar')
-    elif state=='Haryana':
+    elif state == 'Haryana':
         talk('Chandigarh')
-    elif state=='Himachal Pradesh':
+    elif state == 'Himachal Pradesh':
         talk('Shimla')
-    elif state=='Jharkhand':
+    elif state == 'Jharkhand':
         talk('Ranchi')
-    elif state=='Karnataka':
+    elif state == 'Karnataka':
         talk('Bengaluru')
-    elif state=='Kerala':
+    elif state == 'Kerala':
         talk('Thiruvananthapuram')
-    elif state=='Madhya Pradesh':
+    elif state == 'Madhya Pradesh':
         talk('Bhopal')
-    elif state=='Maharashtra':
+    elif state == 'Maharashtra':
         talk('Mumbai')
-    elif state=='Manipur':
+    elif state == 'Manipur':
         talk('Imphal')
-    elif state=='Meghalaya':
+    elif state == 'Meghalaya':
         talk('Shillong')
-    elif state=='Mizoram':
+    elif state == 'Mizoram':
         talk('Aizawl')
-    elif state=='Nagaland':
+    elif state == 'Nagaland':
         talk('Kohima')
-    elif state=='Odisha':
+    elif state == 'Odisha':
         talk('Bhubaneswar')
-    elif state=='Punjab':
+    elif state == 'Punjab':
         talk('Chandigarh')
-    elif state=='Rajasthan':
+    elif state == 'Rajasthan':
         talk('Jaipur')
-    elif state=='Sikkim':
+    elif state == 'Sikkim':
         talk('Gangtok')
-    elif state=='Tamil Nadu':
+    elif state == 'Tamil Nadu':
         talk('Chennai')
-    elif state=='Telangana':
+    elif state == 'Telangana':
         talk('Hyderabad')
-    elif state=='Tripura':
+    elif state == 'Tripura':
         talk('Agartala')
-    elif state=='Uttar Pradesh':
+    elif state == 'Uttar Pradesh':
         talk('Lucknow')
-    elif state=='Uttarakhand':
+    elif state == 'Uttarakhand':
         talk('Dehradun in Winter and Gairsain in Summer')
-    elif state=='West Bengal':
+    elif state == 'West Bengal':
         talk('West Bengal')
-    elif state=='Andaman and Nicobar Islands':
+    elif state == 'Andaman and Nicobar Islands':
         talk('Andaman and Nicobar Islands')
-    elif state=='Dadra & Nagar Haveli and Daman & Diu':
+    elif state == 'Dadra & Nagar Haveli and Daman & Diu':
         talk('Daman')
-    elif state=='Delhi':
+    elif state == 'Delhi':
         talk('Delhi')
-    elif state=='Jammu and Kashmir':
+    elif state == 'Jammu and Kashmir':
         talk('Srinagar in Summer and Jammu in Winter')
-    elif state=='Lakshadweep':
+    elif state == 'Lakshadweep':
         talk('Kavaratti')
-    elif state=='Puducherry':
+    elif state == 'Puducherry':
         talk('Pondicherry')
-    elif state=='Ladakh':
+    elif state == 'Ladakh':
         talk('Leh')
-    elif state=='India':
+    elif state == 'India':
         talk('New Delhi')
     else:
         talk('Please say that again...')
-        
+
+
 def tell_month():
     dt = datetime.datetime.today()
     m_onth = dt.month
@@ -169,33 +169,35 @@ def tell_month():
     if m_onth == 12:
         talk("it's december")
 
+
 def tell_day():
     now = datetime.datetime.now()
-    ans=(now.strftime("%A"))
-    speak(ans)
+    ans = (now.strftime("%A"))
+    talk(ans)
+
 
 def func():
     '''
     This function takes the user's command continuously till the user want to quit.
     '''
-    
+
     talk("Tell me! How can I help you?")
     print("Tell me! How can I help you?")
     command = take_command().lower()
     if 'exit' in command or 'stop' in command or 'shutdown' in command or 'quit' in command:
-        return False 
-    else :
+        return False
+    else:
         key, task = choose(command)
-        notdone =True
-        # see if the task is done or not. 
+        notdone = True
+        # see if the task is done or not.
         while(notdone):
             # in done, take in the next command
-            # if not done, try doing it again or provide the error 
+            # if not done, try doing it again or provide the error
 
-            if key=='':
+            if key == '':
                 notdone = task(ques=command)
             elif key == 'images':
-                # provide option in frontend instead 
+                # provide option in frontend instead
                 print("""Please provide an option for Image
                     # 1, HD Random Picture
                     # 2, FHD Random Picture
@@ -211,17 +213,18 @@ def func():
                 try:
                     ctx = None
                     type = int(take_command())
-                    if type==5:
+                    if type == 5:
                         talk("speak keywords seperated by commas ")
-                        ctx=take_command()
+                        ctx = take_command()
                 except:
-                    print("Sorry, couldn't register your choise. Please type it instead")
+                    print(
+                        "Sorry, couldn't register your choise. Please type it instead")
                     talk("Sorry, couldn't register your choise. Please type it instead")
                     try:
                         type = int(input())
-                        if type==5:
+                        if type == 5:
                             talk("speak keywords seperated by commas ")
-                            ctx=take_command()
+                            ctx = take_command()
                     except:
                         type = -1
                         print("not a valid choise")
@@ -229,7 +232,7 @@ def func():
             elif task == info:
                 if key == 'search':
                     notdone = task(command.replace(key, ''), search=True)
-                else :
+                else:
                     notdone = task(command.replace(key, ''), summary=True)
             # no for whattsapp?
             elif key == 'whatsapp':
@@ -237,38 +240,41 @@ def func():
             elif key == 'weather':
                 place = take_command()
                 notdone = task(place)
-              #take notes  
-            elif key=='take notes':
+              # take notes
+            elif key == 'take notes':
                 print('..')
                 take_notes()
                 print('Noted!!')
-              #show notes
-            elif key=='show notes':
+              # show notes
+            elif key == 'show notes':
                 print('..')
                 show_notes()
-                print('Done') 
-            elif key=='capital':
+                print('Done')
+            elif key == 'capital':
                 fun_talk('Which state capital you want to know')
                 query = get_command()
                 notdone = capital(query)
-                
-            elif key=='month':
+
+            elif key == 'month':
                 tell_month()
-                
-            elif key=='day' or key=='today' :
+
+            elif key == 'day' or key == 'today':
                 tell_day()
-            
+
+            elif key == 'read pdf':
+                read_pdf_file()
+
             else:
                 notdone = task(command.replace(key, '').lstrip())
-        
+
         return True
 
 
-# running loop of the main function 
+# running loop of the main function
 if __name__ == '__main__':
     intro()
     x = True
-    while x:  
+    while x:
         wishMe()
-        x = func() 
+        x = func()
     print("byee!!")
